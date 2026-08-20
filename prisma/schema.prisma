@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Starter models — replace with your own
+model User {
+  id         Int        @id @default(autoincrement())
+  email      String     @unique
+  name       String
+  role       String     @default("Administrator")
+  incidents  Incident[]
+  createdAt  DateTime   @default(now())
+}
+
+model Incident {
+  id          Int      @id @default(autoincrement())
+  title       String
+  status      String   @default("active")
+  district    String
+  reportedAt  DateTime @default(now())
+  assignedToId Int?
+  assignedTo  User?    @relation(fields: [assignedToId], references: [id])
+}
+
+model CommonMasterType {
+  id      Int            @id @default(autoincrement())
+  name    String         @unique
+  masters CommonMaster[]
+}
+
+model CommonMaster {
+  id             Int             @id @default(autoincrement())
+  name           String
+  commonTypeId   Int
+  commonTypeName String
+  commonType     CommonMasterType @relation(fields: [commonTypeId], references: [id], onDelete: Cascade)
+
+  @@index([commonTypeId])
+}
+
+model Menu {
+  id           Int      @id @default(autoincrement())
+  name         String
+  parentId     Int?
+  route        String?  @unique
+  icon         String
+  displayOrder Int      @default(0)
+  isActive     Boolean  @default(true)
+  parent       Menu?    @relation("MenuTree", fields: [parentId], references: [id], onDelete: Cascade)
+  children     Menu[]   @relation("MenuTree")
+  createdAt    DateTime @default(now())
+
+  @@index([parentId])
+}
