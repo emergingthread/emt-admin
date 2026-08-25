@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import Header from "@/app/components/Header";
+import LoadingIndicator from "@/app/components/LoadingIndicator";
 import Pagination from "@/app/components/Pagination";
 import Sidebar from "@/app/components/Sidebar";
 
@@ -14,16 +15,18 @@ export default function CommonTypesPage() {
   const [name, setName] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
 
   async function loadTypes() {
-    setTypes(
-      await fetch("/api/common-types").then((response) => response.json()),
-    );
+    setIsLoading(true);
+    try { setTypes(await fetch("/api/common-types").then((response) => response.json())); } finally { setIsLoading(false); }
   }
   useEffect(() => {
     fetch("/api/common-types")
       .then((response) => response.json())
-      .then(setTypes);
+      .then(setTypes)
+      .finally(() => setIsLoading(false));
   }, []);
 
   const pageCount = Math.max(1, Math.ceil(types.length / pageSize));
@@ -33,6 +36,7 @@ export default function CommonTypesPage() {
   async function saveType(event: FormEvent) {
     event.preventDefault();
     setError("");
+    setIsSaving(true);
     const response = await fetch(
       editingId ? `/api/common-types/${editingId}` : "/api/common-types",
       {
@@ -42,22 +46,25 @@ export default function CommonTypesPage() {
       },
     );
     const data = await response.json();
-    if (!response.ok) return setError(data.message);
+    if (!response.ok) { setError(data.message); setIsSaving(false); return; }
     setName("");
     setEditingId(null);
     void loadTypes();
+    setIsSaving(false);
   }
 
   async function deleteType(id: number) {
     if (!window.confirm("Delete this common type and its masters?")) return;
+    setIsSaving(true);
     const response = await fetch(`/api/common-types/${id}`, {
       method: "DELETE",
     });
     if (!response.ok) {
       const data = await response.json();
-      return setError(data.message);
+      setError(data.message); setIsSaving(false); return;
     }
     void loadTypes();
+    setIsSaving(false);
   }
 
   return (
@@ -73,8 +80,8 @@ export default function CommonTypesPage() {
           aria-label="Type name"
           required
         />
-        <button type="submit" className="primary-button">
-          {editingId ? "Save type" : "Add type"}
+        <button type="submit" className="primary-button" disabled={isSaving}>
+          {isSaving ? "Saving..." : editingId ? "Save type" : "Add type"}
         </button>
         {editingId && (
           <button
@@ -90,7 +97,7 @@ export default function CommonTypesPage() {
         )}
       </form>
       {error && <p className="form-error">{error}</p>}
-      <div className="configuration-list">
+      <div className="configuration-list">{isLoading ? <LoadingIndicator label="Loading common types" /> : <>
         {visibleTypes.map((type) => (
           <div className="configuration-row" key={type.id}>
             <span className="row-number">{type.id}</span>
@@ -116,7 +123,7 @@ export default function CommonTypesPage() {
           </div>
         ))}
         {types.length === 0 && <p className="muted">No common types yet.</p>}
-      </div>
+      </>}</div>
       <Pagination page={page} pageCount={pageCount} onPageChange={setPage} />
     </ConfigurationPage>
   );

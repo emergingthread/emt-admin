@@ -13,6 +13,7 @@ model User {
   email      String     @unique
   name       String
   role       String     @default("Administrator")
+  passwordHash String?
   incidents  Incident[]
   createdAt  DateTime   @default(now())
 }

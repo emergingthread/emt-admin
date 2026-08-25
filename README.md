@@ -24,6 +24,10 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 Open [http://localhost:3000/api-doc](http://localhost:3000/api-doc) to browse and test the API with Swagger UI. The generated OpenAPI document is available at [http://localhost:3000/api/swagger](http://localhost:3000/api/swagger).
 
+## Environment
+
+Create users through `POST /api/users`; passwords are stored as secure hashes and are required for login. The seed command does not create demo data.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -2,8 +2,10 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import Header from "@/app/components/Header";
+import LoadingIndicator from "@/app/components/LoadingIndicator";
 import Pagination from "@/app/components/Pagination";
 import Sidebar from "@/app/components/Sidebar";
+import { fetchJson } from "@/lib/fetch";
 
 type Menu = {
   id: number;
@@ -29,14 +31,20 @@ export default function MenusPage() {
   });
   const [editingId, setEditingId] = useState<number | null>(null);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
 
   async function loadMenus() {
-    setMenus(await fetch("/api/menus").then((response) => response.json()));
+    try {
+      const data = await fetchJson<Menu[]>("/api/menus");
+      setMenus(data);
+    } catch (loadError) {
+      setError(loadError instanceof Error ? loadError.message : "Failed to load menus");
+      setMenus([]);
+    }
   }
   useEffect(() => {
-    fetch("/api/menus")
-      .then((response) => response.json())
-      .then(setMenus);
+    void loadMenus().finally(() => setIsLoading(false));
   }, []);
 
   const pageCount = Math.max(1, Math.ceil(menus.length / pageSize));
@@ -45,34 +53,42 @@ export default function MenusPage() {
   async function saveMenu(event: FormEvent) {
     event.preventDefault();
     setError("");
-    const response = await fetch(
-      editingId ? `/api/menus/${editingId}` : "/api/menus",
-      {
-        method: editingId ? "PATCH" : "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          route: form.path || null,
-          displayOrder: Number(form.sortOrder),
-          parentId: null,
-        }),
-      },
-    );
-    const data = await response.json();
-    if (!response.ok) return setError(data.message);
-    setForm({ name: "", path: "", icon: "◇", sortOrder: "0" });
-    setEditingId(null);
-    void loadMenus();
+    setIsSaving(true);
+    try {
+      await fetchJson(
+        editingId ? `/api/menus/${editingId}` : "/api/menus",
+        {
+          method: editingId ? "PATCH" : "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...form,
+            route: form.path || null,
+            displayOrder: Number(form.sortOrder),
+            parentId: null,
+          }),
+        },
+      );
+      setForm({ name: "", path: "", icon: "◇", sortOrder: "0" });
+      setEditingId(null);
+      await loadMenus();
+    } catch (saveError) {
+      setError(saveError instanceof Error ? saveError.message : "Unable to save menu");
+    } finally {
+      setIsSaving(false);
+    }
   }
 
   async function deleteMenu(id: number) {
     if (!window.confirm("Remove this menu from the sidebar?")) return;
-    const response = await fetch(`/api/menus/${id}`, { method: "DELETE" });
-    if (!response.ok) {
-      const data = await response.json();
-      return setError(data.message);
+    setIsSaving(true);
+    try {
+      await fetchJson(`/api/menus/${id}`, { method: "DELETE" });
+      await loadMenus();
+    } catch (deleteError) {
+      setError(deleteError instanceof Error ? deleteError.message : "Unable to delete menu");
+    } finally {
+      setIsSaving(false);
     }
-    void loadMenus();
   }
 
   return (
@@ -129,8 +145,8 @@ export default function MenusPage() {
                     setForm({ ...form, sortOrder: event.target.value })
                   }
                 />
-              <button type="submit" className="primary-button">
-                {editingId ? "Save menu" : "Add menu"}
+              <button type="submit" className="primary-button" disabled={isSaving}>
+                {isSaving ? "Saving..." : editingId ? "Save menu" : "Add menu"}
               </button>
               {editingId && (
                 <button
@@ -146,7 +162,7 @@ export default function MenusPage() {
               )}
             </form>
             {error && <p className="form-error">{error}</p>}
-            <div className="configuration-list menu-table">
+            <div className="configuration-list menu-table">{isLoading ? <LoadingIndicator label="Loading menus" /> : <>
               <div className="menu-table-header" aria-hidden="true">
                 <span>Icon</span>
                 <span>Menu name</span>
@@ -188,7 +204,7 @@ export default function MenusPage() {
               {menus.length === 0 && (
                 <p className="muted">No custom menus yet.</p>
               )}
-            </div>
+            </>}</div>
             <Pagination page={page} pageCount={pageCount} onPageChange={setPage} />
           </section>
         </div>

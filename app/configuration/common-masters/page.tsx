@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import Header from "@/app/components/Header";
+import LoadingIndicator from "@/app/components/LoadingIndicator";
 import Pagination from "@/app/components/Pagination";
 import Sidebar from "@/app/components/Sidebar";
 
@@ -22,14 +23,15 @@ export default function CommonMastersPage() {
   const [commonTypeId, setCommonTypeId] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
 
   async function loadData() {
     const [masterData, typeData] = await Promise.all([
       fetch("/api/common-masters").then((response) => response.json()),
       fetch("/api/common-types").then((response) => response.json()),
     ]);
-    setMasters(masterData);
-    setTypes(typeData);
+    setMasters(masterData); setTypes(typeData); setIsLoading(false);
   }
   useEffect(() => {
     Promise.all([
@@ -38,7 +40,7 @@ export default function CommonMastersPage() {
     ]).then(([masterData, typeData]) => {
       setMasters(masterData);
       setTypes(typeData);
-    });
+    }).finally(() => setIsLoading(false));
   }, []);
 
   const pageCount = Math.max(1, Math.ceil(masters.length / pageSize));
@@ -50,6 +52,7 @@ export default function CommonMastersPage() {
   async function saveMaster(event: FormEvent) {
     event.preventDefault();
     setError("");
+    setIsSaving(true);
     const response = await fetch(
       editingId ? `/api/common-masters/${editingId}` : "/api/common-masters",
       {
@@ -59,23 +62,26 @@ export default function CommonMastersPage() {
       },
     );
     const data = await response.json();
-    if (!response.ok) return setError(data.message);
+    if (!response.ok) { setError(data.message); setIsSaving(false); return; }
     setName("");
     setCommonTypeId("");
     setEditingId(null);
     void loadData();
+    setIsSaving(false);
   }
 
   async function deleteMaster(id: number) {
     if (!window.confirm("Delete this common master?")) return;
+    setIsSaving(true);
     const response = await fetch(`/api/common-masters/${id}`, {
       method: "DELETE",
     });
     if (!response.ok) {
       const data = await response.json();
-      return setError(data.message);
+      setError(data.message); setIsSaving(false); return;
     }
     void loadData();
+    setIsSaving(false);
   }
 
   return (
@@ -114,8 +120,8 @@ export default function CommonMastersPage() {
                   </option>
                 ))}
               </select>
-              <button type="submit" className="primary-button">
-                {editingId ? "Save master" : "Add master"}
+              <button type="submit" className="primary-button" disabled={isSaving}>
+                {isSaving ? "Saving..." : editingId ? "Save master" : "Add master"}
               </button>
               {editingId && (
                 <button
@@ -132,7 +138,7 @@ export default function CommonMastersPage() {
               )}
             </form>
             {error && <p className="form-error">{error}</p>}
-            <div className="configuration-list">
+            <div className="configuration-list">{isLoading ? <LoadingIndicator label="Loading common masters" /> : <>
               {visibleMasters.map((master) => (
                 <div className="configuration-row" key={master.id}>
                   <span className="row-number">{master.id}</span>
@@ -162,7 +168,7 @@ export default function CommonMastersPage() {
               {masters.length === 0 && (
                 <p className="muted">No common masters yet.</p>
               )}
-            </div>
+            </>}</div>
             <Pagination
               page={page}
               pageCount={pageCount}
