@@ -1,18 +1,7 @@
-import { Prisma } from "@/generated/prisma/client";
-
 export const productMasterFields = [
   "categoryId", "collectionId", "genderId", "materialId", "fitId", "necklineId",
   "sleeveTypeId", "occasionId", "patternId", "seasonId", "lengthId", "careInstructionsId", "productStatusId",
 ] as const;
-
-export type ProductImageInput = {
-  id?: number;
-  imageUrl: string;
-  publicId: string;
-  altText?: string;
-  isPrimary?: boolean;
-  displayOrder?: number;
-};
 
 export function normalizeProductInput(body: Record<string, unknown>) {
   const name = typeof body.name === "string" ? body.name.trim() : "";
@@ -30,29 +19,15 @@ export function normalizeProductInput(body: Record<string, unknown>) {
   })) as Record<(typeof productMasterFields)[number], number | null>;
   if (Object.values(masterIds).some((value) => value !== null && !Number.isInteger(value))) throw new Error("Master IDs must be valid integers");
 
-  const images = Array.isArray(body.images) ? body.images as ProductImageInput[] : [];
-  if (images.some((image) => !image.imageUrl || !image.publicId)) throw new Error("Every image must include a URL and public ID");
-  const primaryCount = images.filter((image) => image.isPrimary).length;
-  if (primaryCount > 1) throw new Error("Only one image can be primary");
-
   return {
     name, code, slug,
     description: typeof body.description === "string" ? body.description.trim() || null : null,
     ...masterIds, categoryId, genderId,
     isActive: body.isActive !== false,
-    images: images.map((image, index) => ({
-      id: image.id ? Number(image.id) : undefined,
-      imageUrl: image.imageUrl,
-      publicId: image.publicId,
-      altText: image.altText?.trim() || null,
-      isPrimary: Boolean(image.isPrimary),
-      displayOrder: Number.isInteger(image.displayOrder) ? image.displayOrder as number : index,
-    })),
   };
 }
 
 export const productInclude = {
-  images: { orderBy: { displayOrder: "asc" as const } },
   category: true,
   collection: true,
   gender: true,

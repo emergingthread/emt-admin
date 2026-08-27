@@ -56,8 +56,10 @@ export const ModelName = {
   CommonMasterType: 'CommonMasterType',
   CommonMaster: 'CommonMaster',
   Product: 'Product',
-  ProductImage: 'ProductImage',
-  Menu: 'Menu'
+  ProductColor: 'ProductColor',
+  ProductColorImage: 'ProductColorImage',
+  Menu: 'Menu',
+  ProductVariant: 'ProductVariant'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -149,9 +151,20 @@ export const ProductScalarFieldEnum = {
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
 
 
-export const ProductImageScalarFieldEnum = {
+export const ProductColorScalarFieldEnum = {
   id: 'id',
   productId: 'productId',
+  colorId: 'colorId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProductColorScalarFieldEnum = (typeof ProductColorScalarFieldEnum)[keyof typeof ProductColorScalarFieldEnum]
+
+
+export const ProductColorImageScalarFieldEnum = {
+  id: 'id',
+  productColorId: 'productColorId',
   imageUrl: 'imageUrl',
   publicId: 'publicId',
   altText: 'altText',
@@ -161,7 +174,7 @@ export const ProductImageScalarFieldEnum = {
   updatedAt: 'updatedAt'
 } as const
 
-export type ProductImageScalarFieldEnum = (typeof ProductImageScalarFieldEnum)[keyof typeof ProductImageScalarFieldEnum]
+export type ProductColorImageScalarFieldEnum = (typeof ProductColorImageScalarFieldEnum)[keyof typeof ProductColorImageScalarFieldEnum]
 
 
 export const MenuScalarFieldEnum = {
@@ -176,6 +189,21 @@ export const MenuScalarFieldEnum = {
 } as const
 
 export type MenuScalarFieldEnum = (typeof MenuScalarFieldEnum)[keyof typeof MenuScalarFieldEnum]
+
+
+export const ProductVariantScalarFieldEnum = {
+  id: 'id',
+  productColorId: 'productColorId',
+  sizeId: 'sizeId',
+  sku: 'sku',
+  price: 'price',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProductVariantScalarFieldEnum = (typeof ProductVariantScalarFieldEnum)[keyof typeof ProductVariantScalarFieldEnum]
 
 
 export const SortOrder = {

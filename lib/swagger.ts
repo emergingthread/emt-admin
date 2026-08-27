@@ -31,7 +31,6 @@ export function getApiDocs() {
               patternId: { type: "integer", nullable: true }, seasonId: { type: "integer", nullable: true },
               lengthId: { type: "integer", nullable: true }, careInstructionsId: { type: "integer", nullable: true },
               productStatusId: { type: "integer", nullable: true }, isActive: { type: "boolean", default: true },
-              images: { type: "array", items: { $ref: "#/components/schemas/ProductImageInput" } },
             },
           },
           ProductImageInput: {
@@ -42,6 +41,17 @@ export function getApiDocs() {
               altText: { type: "string" }, isPrimary: { type: "boolean" }, displayOrder: { type: "integer" },
             },
           },
+          ProductVariantInput: {
+            type: "object",
+            required: ["productId", "colorId", "sizeIds", "sku", "price"],
+            properties: {
+              productId: { type: "integer" }, colorId: { type: "integer" },
+              sizeIds: { type: "array", items: { type: "integer" }, minItems: 1, example: [12, 13, 14] },
+              sizeId: { type: "integer", deprecated: true, description: "Accepted for compatibility; prefer sizeIds" },
+              sku: { type: "string", example: "LCS001-BEI" }, price: { type: "number", format: "double", exclusiveMinimum: 0 },
+              images: { type: "array", items: { $ref: "#/components/schemas/ProductImageInput" } },
+            },
+          },
         },
       },
       tags: [
@@ -50,6 +60,7 @@ export function getApiDocs() {
         { name: "Common Types" },
         { name: "Menus" },
         { name: "Products" },
+        { name: "Product Variants" },
       ],
     },
   });

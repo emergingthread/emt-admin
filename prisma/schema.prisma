@@ -17,31 +17,33 @@ model User {
   incidents  Incident[]
   createdProducts Product[] @relation("ProductCreatedBy")
   updatedProducts Product[] @relation("ProductUpdatedBy")
+  createdProductVariants ProductVariant[] @relation("ProductVariantCreatedBy")
+  updatedProductVariants ProductVariant[] @relation("ProductVariantUpdatedBy")
   createdAt  DateTime   @default(now())
 }
 
 model Incident {
-  id          Int      @id @default(autoincrement())
-  title       String
-  status      String   @default("active")
-  district    String
-  reportedAt  DateTime @default(now())
+  id Int @id @default(autoincrement())
+  title String
+  status String @default("active")
+  district String
+  reportedAt DateTime @default(now())
   assignedToId Int?
-  assignedTo  User?    @relation(fields: [assignedToId], references: [id])
+  assignedTo User? @relation(fields: [assignedToId], references: [id])
 }
 
 model CommonMasterType {
-  id      Int            @id @default(autoincrement())
-  name    String         @unique
+  id Int @id @default(autoincrement())
+  name String @unique
   masters CommonMaster[]
 }
 
 model CommonMaster {
-  id             Int             @id @default(autoincrement())
-  name           String
-  commonTypeId   Int
+  id Int @id @default(autoincrement())
+  name String
+  commonTypeId Int
   commonTypeName String
-  commonType     CommonMasterType @relation(fields: [commonTypeId], references: [id], onDelete: Cascade)
+  commonType CommonMasterType @relation(fields: [commonTypeId], references: [id], onDelete: Cascade)
   productCategories Product[] @relation("ProductCategory")
   productCollections Product[] @relation("ProductCollection")
   productGenders Product[] @relation("ProductGender")
@@ -55,54 +57,53 @@ model CommonMaster {
   productLengths Product[] @relation("ProductLength")
   productCareInstructions Product[] @relation("ProductCareInstructions")
   productStatuses Product[] @relation("ProductStatus")
-
+  productColors ProductColor[] @relation("ProductColorMaster")
+  productVariantSizes ProductVariant[] @relation("ProductVariantSize")
   @@index([commonTypeId])
 }
 
 model Product {
-  id                 Int      @id @default(autoincrement())
-  name               String
-  code               String   @unique
-  slug               String   @unique
-  description        String?
-  categoryId         Int
-  collectionId       Int?
-  genderId           Int
-  materialId         Int?
-  fitId              Int?
-  necklineId         Int?
-  sleeveTypeId       Int?
-  occasionId         Int?
-  patternId           Int?
-  seasonId           Int?
-  lengthId           Int?
+  id Int @id @default(autoincrement())
+  name String
+  code String @unique
+  slug String @unique
+  description String?
+  categoryId Int
+  collectionId Int?
+  genderId Int
+  materialId Int?
+  fitId Int?
+  necklineId Int?
+  sleeveTypeId Int?
+  occasionId Int?
+  patternId Int?
+  seasonId Int?
+  lengthId Int?
   careInstructionsId Int?
-  productStatusId    Int?
-  averageRating      Float    @default(0)
-  reviewCount        Int      @default(0)
-  isActive           Boolean  @default(true)
-  createdBy          Int
-  updatedBy          Int?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
-
-  category         CommonMaster @relation("ProductCategory", fields: [categoryId], references: [id])
-  collection       CommonMaster? @relation("ProductCollection", fields: [collectionId], references: [id])
-  gender           CommonMaster @relation("ProductGender", fields: [genderId], references: [id])
-  material         CommonMaster? @relation("ProductMaterial", fields: [materialId], references: [id])
-  fit              CommonMaster? @relation("ProductFit", fields: [fitId], references: [id])
-  neckline         CommonMaster? @relation("ProductNeckline", fields: [necklineId], references: [id])
-  sleeveType       CommonMaster? @relation("ProductSleeveType", fields: [sleeveTypeId], references: [id])
-  occasion         CommonMaster? @relation("ProductOccasion", fields: [occasionId], references: [id])
-  pattern          CommonMaster? @relation("ProductPattern", fields: [patternId], references: [id])
-  season           CommonMaster? @relation("ProductSeason", fields: [seasonId], references: [id])
-  length           CommonMaster? @relation("ProductLength", fields: [lengthId], references: [id])
+  productStatusId Int?
+  averageRating Float @default(0)
+  reviewCount Int @default(0)
+  isActive Boolean @default(true)
+  createdBy Int
+  updatedBy Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  category CommonMaster @relation("ProductCategory", fields: [categoryId], references: [id])
+  collection CommonMaster? @relation("ProductCollection", fields: [collectionId], references: [id])
+  gender CommonMaster @relation("ProductGender", fields: [genderId], references: [id])
+  material CommonMaster? @relation("ProductMaterial", fields: [materialId], references: [id])
+  fit CommonMaster? @relation("ProductFit", fields: [fitId], references: [id])
+  neckline CommonMaster? @relation("ProductNeckline", fields: [necklineId], references: [id])
+  sleeveType CommonMaster? @relation("ProductSleeveType", fields: [sleeveTypeId], references: [id])
+  occasion CommonMaster? @relation("ProductOccasion", fields: [occasionId], references: [id])
+  pattern CommonMaster? @relation("ProductPattern", fields: [patternId], references: [id])
+  season CommonMaster? @relation("ProductSeason", fields: [seasonId], references: [id])
+  length CommonMaster? @relation("ProductLength", fields: [lengthId], references: [id])
   careInstructions CommonMaster? @relation("ProductCareInstructions", fields: [careInstructionsId], references: [id])
-  productStatus    CommonMaster? @relation("ProductStatus", fields: [productStatusId], references: [id])
-  creator          User @relation("ProductCreatedBy", fields: [createdBy], references: [id])
-  updater          User? @relation("ProductUpdatedBy", fields: [updatedBy], references: [id])
-  images           ProductImage[]
-
+  productStatus CommonMaster? @relation("ProductStatus", fields: [productStatusId], references: [id])
+  creator User @relation("ProductCreatedBy", fields: [createdBy], references: [id])
+  updater User? @relation("ProductUpdatedBy", fields: [updatedBy], references: [id])
+  colors ProductColor[]
   @@index([code])
   @@index([slug])
   @@index([categoryId])
@@ -113,19 +114,36 @@ model Product {
   @@index([createdAt])
 }
 
-model ProductImage {
-  id           Int      @id @default(autoincrement())
-  productId    Int
-  imageUrl     String
-  publicId     String
-  altText      String?
-  isPrimary    Boolean  @default(false)
-  displayOrder Int      @default(0)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  product      Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+model ProductColor {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  colorId   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@index([productId, displayOrder])
+  product  Product             @relation(fields: [productId], references: [id], onDelete: Cascade)
+  color    CommonMaster        @relation("ProductColorMaster", fields: [colorId], references: [id])
+  images   ProductColorImage[]
+  variants ProductVariant[]
+
+  @@unique([productId, colorId])
+  @@index([productId])
+  @@index([colorId])
+}
+
+model ProductColorImage {
+  id             Int          @id @default(autoincrement())
+  productColorId Int
+  imageUrl       String
+  publicId       String
+  altText        String?
+  isPrimary      Boolean      @default(false)
+  displayOrder   Int          @default(0)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  productColor   ProductColor @relation(fields: [productColorId], references: [id], onDelete: Cascade)
+
+  @@index([productColorId, displayOrder])
 }
 
 model Menu {
@@ -141,4 +159,27 @@ model Menu {
   createdAt    DateTime @default(now())
 
   @@index([parentId])
+}
+
+model ProductVariant {
+  id            Int      @id @default(autoincrement())
+  productColorId Int
+  sizeId        Int
+  sku           String   @unique
+  price         Decimal  @db.Decimal(12, 2)
+  createdBy     Int
+  updatedBy     Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  productColor  ProductColor @relation(fields: [productColorId], references: [id], onDelete: Cascade)
+  size          CommonMaster @relation("ProductVariantSize", fields: [sizeId], references: [id])
+  createdByUser User         @relation("ProductVariantCreatedBy", fields: [createdBy], references: [id])
+  updatedByUser User?        @relation("ProductVariantUpdatedBy", fields: [updatedBy], references: [id])
+
+  @@unique([productColorId, sizeId])
+  @@index([productColorId])
+  @@index([sizeId])
+  @@index([sku])
+  @@index([createdAt])
 }

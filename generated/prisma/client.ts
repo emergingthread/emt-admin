@@ -67,12 +67,22 @@ export type CommonMaster = Prisma.CommonMasterModel
  */
 export type Product = Prisma.ProductModel
 /**
- * Model ProductImage
+ * Model ProductColor
  * 
  */
-export type ProductImage = Prisma.ProductImageModel
+export type ProductColor = Prisma.ProductColorModel
+/**
+ * Model ProductColorImage
+ * 
+ */
+export type ProductColorImage = Prisma.ProductColorImageModel
 /**
  * Model Menu
  * 
  */
 export type Menu = Prisma.MenuModel
+/**
+ * Model ProductVariant
+ * 
+ */
+export type ProductVariant = Prisma.ProductVariantModel

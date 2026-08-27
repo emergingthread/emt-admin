@@ -74,19 +74,14 @@ export async function POST(request: Request) {
   try {
     const input = normalizeProductInput(await request.json());
     if (!(await validateMasters(input))) return NextResponse.json({ message: "One or more master values are invalid" }, { status: 400 });
-    const { images, ...productData } = input;
     const product = await prisma.product.create({
-      data: {
-        ...productData,
-        images: { create: images.map((image) => ({ imageUrl: image.imageUrl, publicId: image.publicId, altText: image.altText, isPrimary: image.isPrimary, displayOrder: image.displayOrder })) },
-        createdBy: auth.id,
-      },
+      data: { ...input, createdBy: auth.id },
       include: productInclude,
     });
     return NextResponse.json(product, { status: 201 });
   } catch (error) {
     console.error("Product create failed:", error);
-    if (error instanceof Error && (error.message.includes("required") || error.message.includes("IDs") || error.message.includes("image"))) return NextResponse.json({ message: error.message }, { status: 400 });
+    if (error instanceof Error && (error.message.includes("required") || error.message.includes("IDs"))) return NextResponse.json({ message: error.message }, { status: 400 });
     const code = (error as { code?: string })?.code;
     return NextResponse.json({ message: productError(error) }, { status: code === "P2002" ? 409 : 500 });
   }

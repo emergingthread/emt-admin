@@ -226,6 +226,8 @@ export type CommonMasterWhereInput = {
   productLengths?: Prisma.ProductListRelationFilter
   productCareInstructions?: Prisma.ProductListRelationFilter
   productStatuses?: Prisma.ProductListRelationFilter
+  productColors?: Prisma.ProductColorListRelationFilter
+  productVariantSizes?: Prisma.ProductVariantListRelationFilter
 }
 
 export type CommonMasterOrderByWithRelationInput = {
@@ -247,6 +249,8 @@ export type CommonMasterOrderByWithRelationInput = {
   productLengths?: Prisma.ProductOrderByRelationAggregateInput
   productCareInstructions?: Prisma.ProductOrderByRelationAggregateInput
   productStatuses?: Prisma.ProductOrderByRelationAggregateInput
+  productColors?: Prisma.ProductColorOrderByRelationAggregateInput
+  productVariantSizes?: Prisma.ProductVariantOrderByRelationAggregateInput
 }
 
 export type CommonMasterWhereUniqueInput = Prisma.AtLeast<{
@@ -271,6 +275,8 @@ export type CommonMasterWhereUniqueInput = Prisma.AtLeast<{
   productLengths?: Prisma.ProductListRelationFilter
   productCareInstructions?: Prisma.ProductListRelationFilter
   productStatuses?: Prisma.ProductListRelationFilter
+  productColors?: Prisma.ProductColorListRelationFilter
+  productVariantSizes?: Prisma.ProductVariantListRelationFilter
 }, "id">
 
 export type CommonMasterOrderByWithAggregationInput = {
@@ -312,6 +318,8 @@ export type CommonMasterCreateInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateInput = {
@@ -332,6 +340,8 @@ export type CommonMasterUncheckedCreateInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUpdateInput = {
@@ -351,6 +361,8 @@ export type CommonMasterUpdateInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateInput = {
@@ -371,6 +383,8 @@ export type CommonMasterUncheckedUpdateInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterCreateManyInput = {
@@ -689,6 +703,34 @@ export type CommonMasterUpdateOneWithoutProductStatusesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductStatusesInput, Prisma.CommonMasterUpdateWithoutProductStatusesInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductStatusesInput>
 }
 
+export type CommonMasterCreateNestedOneWithoutProductColorsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductColorsInput, Prisma.CommonMasterUncheckedCreateWithoutProductColorsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductColorsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterUpdateOneRequiredWithoutProductColorsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductColorsInput, Prisma.CommonMasterUncheckedCreateWithoutProductColorsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductColorsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductColorsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductColorsInput, Prisma.CommonMasterUpdateWithoutProductColorsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductColorsInput>
+}
+
+export type CommonMasterCreateNestedOneWithoutProductVariantSizesInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductVariantSizesInput, Prisma.CommonMasterUncheckedCreateWithoutProductVariantSizesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductVariantSizesInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterUpdateOneRequiredWithoutProductVariantSizesNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductVariantSizesInput, Prisma.CommonMasterUncheckedCreateWithoutProductVariantSizesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductVariantSizesInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductVariantSizesInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductVariantSizesInput, Prisma.CommonMasterUpdateWithoutProductVariantSizesInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductVariantSizesInput>
+}
+
 export type CommonMasterCreateWithoutCommonTypeInput = {
   name: string
   commonTypeName: string
@@ -705,6 +747,8 @@ export type CommonMasterCreateWithoutCommonTypeInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutCommonTypeInput = {
@@ -724,6 +768,8 @@ export type CommonMasterUncheckedCreateWithoutCommonTypeInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutCommonTypeInput = {
@@ -778,6 +824,8 @@ export type CommonMasterCreateWithoutProductCategoriesInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductCategoriesInput = {
@@ -797,6 +845,8 @@ export type CommonMasterUncheckedCreateWithoutProductCategoriesInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductCategoriesInput = {
@@ -820,6 +870,8 @@ export type CommonMasterCreateWithoutProductCollectionsInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductCollectionsInput = {
@@ -839,6 +891,8 @@ export type CommonMasterUncheckedCreateWithoutProductCollectionsInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductCollectionsInput = {
@@ -862,6 +916,8 @@ export type CommonMasterCreateWithoutProductGendersInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductGendersInput = {
@@ -881,6 +937,8 @@ export type CommonMasterUncheckedCreateWithoutProductGendersInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductGendersInput = {
@@ -904,6 +962,8 @@ export type CommonMasterCreateWithoutProductMaterialsInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductMaterialsInput = {
@@ -923,6 +983,8 @@ export type CommonMasterUncheckedCreateWithoutProductMaterialsInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductMaterialsInput = {
@@ -946,6 +1008,8 @@ export type CommonMasterCreateWithoutProductFitsInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductFitsInput = {
@@ -965,6 +1029,8 @@ export type CommonMasterUncheckedCreateWithoutProductFitsInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductFitsInput = {
@@ -988,6 +1054,8 @@ export type CommonMasterCreateWithoutProductNecklinesInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductNecklinesInput = {
@@ -1007,6 +1075,8 @@ export type CommonMasterUncheckedCreateWithoutProductNecklinesInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductNecklinesInput = {
@@ -1030,6 +1100,8 @@ export type CommonMasterCreateWithoutProductSleeveTypesInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductSleeveTypesInput = {
@@ -1049,6 +1121,8 @@ export type CommonMasterUncheckedCreateWithoutProductSleeveTypesInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductSleeveTypesInput = {
@@ -1072,6 +1146,8 @@ export type CommonMasterCreateWithoutProductOccasionsInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductOccasionsInput = {
@@ -1091,6 +1167,8 @@ export type CommonMasterUncheckedCreateWithoutProductOccasionsInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductOccasionsInput = {
@@ -1114,6 +1192,8 @@ export type CommonMasterCreateWithoutProductPatternsInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductPatternsInput = {
@@ -1133,6 +1213,8 @@ export type CommonMasterUncheckedCreateWithoutProductPatternsInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductPatternsInput = {
@@ -1156,6 +1238,8 @@ export type CommonMasterCreateWithoutProductSeasonsInput = {
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductSeasonsInput = {
@@ -1175,6 +1259,8 @@ export type CommonMasterUncheckedCreateWithoutProductSeasonsInput = {
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductSeasonsInput = {
@@ -1198,6 +1284,8 @@ export type CommonMasterCreateWithoutProductLengthsInput = {
   productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductLengthsInput = {
@@ -1217,6 +1305,8 @@ export type CommonMasterUncheckedCreateWithoutProductLengthsInput = {
   productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductLengthsInput = {
@@ -1240,6 +1330,8 @@ export type CommonMasterCreateWithoutProductCareInstructionsInput = {
   productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductCareInstructionsInput = {
@@ -1259,6 +1351,8 @@ export type CommonMasterUncheckedCreateWithoutProductCareInstructionsInput = {
   productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductCareInstructionsInput = {
@@ -1282,6 +1376,8 @@ export type CommonMasterCreateWithoutProductStatusesInput = {
   productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
   productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterUncheckedCreateWithoutProductStatusesInput = {
@@ -1301,6 +1397,8 @@ export type CommonMasterUncheckedCreateWithoutProductStatusesInput = {
   productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
   productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
   productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
 }
 
 export type CommonMasterCreateOrConnectWithoutProductStatusesInput = {
@@ -1335,6 +1433,8 @@ export type CommonMasterUpdateWithoutProductCategoriesInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductCategoriesInput = {
@@ -1354,6 +1454,8 @@ export type CommonMasterUncheckedUpdateWithoutProductCategoriesInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductCollectionsInput = {
@@ -1383,6 +1485,8 @@ export type CommonMasterUpdateWithoutProductCollectionsInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductCollectionsInput = {
@@ -1402,6 +1506,8 @@ export type CommonMasterUncheckedUpdateWithoutProductCollectionsInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductGendersInput = {
@@ -1431,6 +1537,8 @@ export type CommonMasterUpdateWithoutProductGendersInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductGendersInput = {
@@ -1450,6 +1558,8 @@ export type CommonMasterUncheckedUpdateWithoutProductGendersInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductMaterialsInput = {
@@ -1479,6 +1589,8 @@ export type CommonMasterUpdateWithoutProductMaterialsInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductMaterialsInput = {
@@ -1498,6 +1610,8 @@ export type CommonMasterUncheckedUpdateWithoutProductMaterialsInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductFitsInput = {
@@ -1527,6 +1641,8 @@ export type CommonMasterUpdateWithoutProductFitsInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductFitsInput = {
@@ -1546,6 +1662,8 @@ export type CommonMasterUncheckedUpdateWithoutProductFitsInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductNecklinesInput = {
@@ -1575,6 +1693,8 @@ export type CommonMasterUpdateWithoutProductNecklinesInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductNecklinesInput = {
@@ -1594,6 +1714,8 @@ export type CommonMasterUncheckedUpdateWithoutProductNecklinesInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductSleeveTypesInput = {
@@ -1623,6 +1745,8 @@ export type CommonMasterUpdateWithoutProductSleeveTypesInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductSleeveTypesInput = {
@@ -1642,6 +1766,8 @@ export type CommonMasterUncheckedUpdateWithoutProductSleeveTypesInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductOccasionsInput = {
@@ -1671,6 +1797,8 @@ export type CommonMasterUpdateWithoutProductOccasionsInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductOccasionsInput = {
@@ -1690,6 +1818,8 @@ export type CommonMasterUncheckedUpdateWithoutProductOccasionsInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductPatternsInput = {
@@ -1719,6 +1849,8 @@ export type CommonMasterUpdateWithoutProductPatternsInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductPatternsInput = {
@@ -1738,6 +1870,8 @@ export type CommonMasterUncheckedUpdateWithoutProductPatternsInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductSeasonsInput = {
@@ -1767,6 +1901,8 @@ export type CommonMasterUpdateWithoutProductSeasonsInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductSeasonsInput = {
@@ -1786,6 +1922,8 @@ export type CommonMasterUncheckedUpdateWithoutProductSeasonsInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductLengthsInput = {
@@ -1815,6 +1953,8 @@ export type CommonMasterUpdateWithoutProductLengthsInput = {
   productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductLengthsInput = {
@@ -1834,6 +1974,8 @@ export type CommonMasterUncheckedUpdateWithoutProductLengthsInput = {
   productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductCareInstructionsInput = {
@@ -1863,6 +2005,8 @@ export type CommonMasterUpdateWithoutProductCareInstructionsInput = {
   productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductCareInstructionsInput = {
@@ -1882,6 +2026,8 @@ export type CommonMasterUncheckedUpdateWithoutProductCareInstructionsInput = {
   productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUpsertWithoutProductStatusesInput = {
@@ -1911,6 +2057,8 @@ export type CommonMasterUpdateWithoutProductStatusesInput = {
   productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutProductStatusesInput = {
@@ -1930,6 +2078,204 @@ export type CommonMasterUncheckedUpdateWithoutProductStatusesInput = {
   productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
+}
+
+export type CommonMasterCreateWithoutProductColorsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productVariantSizes?: Prisma.ProductVariantCreateNestedManyWithoutSizeInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductColorsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutSizeInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductColorsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductColorsInput, Prisma.CommonMasterUncheckedCreateWithoutProductColorsInput>
+}
+
+export type CommonMasterUpsertWithoutProductColorsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductColorsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductColorsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductColorsInput, Prisma.CommonMasterUncheckedCreateWithoutProductColorsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductColorsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductColorsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductColorsInput>
+}
+
+export type CommonMasterUpdateWithoutProductColorsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductColorsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
+}
+
+export type CommonMasterCreateWithoutProductVariantSizesInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorCreateNestedManyWithoutColorInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductVariantSizesInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+  productColors?: Prisma.ProductColorUncheckedCreateNestedManyWithoutColorInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductVariantSizesInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductVariantSizesInput, Prisma.CommonMasterUncheckedCreateWithoutProductVariantSizesInput>
+}
+
+export type CommonMasterUpsertWithoutProductVariantSizesInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductVariantSizesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductVariantSizesInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductVariantSizesInput, Prisma.CommonMasterUncheckedCreateWithoutProductVariantSizesInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductVariantSizesInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductVariantSizesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductVariantSizesInput>
+}
+
+export type CommonMasterUpdateWithoutProductVariantSizesInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductVariantSizesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
 }
 
 export type CommonMasterCreateManyCommonTypeInput = {
@@ -1954,6 +2300,8 @@ export type CommonMasterUpdateWithoutCommonTypeInput = {
   productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutCommonTypeInput = {
@@ -1973,6 +2321,8 @@ export type CommonMasterUncheckedUpdateWithoutCommonTypeInput = {
   productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
   productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
   productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+  productColors?: Prisma.ProductColorUncheckedUpdateManyWithoutColorNestedInput
+  productVariantSizes?: Prisma.ProductVariantUncheckedUpdateManyWithoutSizeNestedInput
 }
 
 export type CommonMasterUncheckedUpdateManyWithoutCommonTypeInput = {
@@ -2000,6 +2350,8 @@ export type CommonMasterCountOutputType = {
   productLengths: number
   productCareInstructions: number
   productStatuses: number
+  productColors: number
+  productVariantSizes: number
 }
 
 export type CommonMasterCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2016,6 +2368,8 @@ export type CommonMasterCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   productLengths?: boolean | CommonMasterCountOutputTypeCountProductLengthsArgs
   productCareInstructions?: boolean | CommonMasterCountOutputTypeCountProductCareInstructionsArgs
   productStatuses?: boolean | CommonMasterCountOutputTypeCountProductStatusesArgs
+  productColors?: boolean | CommonMasterCountOutputTypeCountProductColorsArgs
+  productVariantSizes?: boolean | CommonMasterCountOutputTypeCountProductVariantSizesArgs
 }
 
 /**
@@ -2119,6 +2473,20 @@ export type CommonMasterCountOutputTypeCountProductStatusesArgs<ExtArgs extends 
   where?: Prisma.ProductWhereInput
 }
 
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductColorsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductColorWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductVariantSizesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductVariantWhereInput
+}
+
 
 export type CommonMasterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2139,6 +2507,8 @@ export type CommonMasterSelect<ExtArgs extends runtime.Types.Extensions.Internal
   productLengths?: boolean | Prisma.CommonMaster$productLengthsArgs<ExtArgs>
   productCareInstructions?: boolean | Prisma.CommonMaster$productCareInstructionsArgs<ExtArgs>
   productStatuses?: boolean | Prisma.CommonMaster$productStatusesArgs<ExtArgs>
+  productColors?: boolean | Prisma.CommonMaster$productColorsArgs<ExtArgs>
+  productVariantSizes?: boolean | Prisma.CommonMaster$productVariantSizesArgs<ExtArgs>
   _count?: boolean | Prisma.CommonMasterCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["commonMaster"]>
 
@@ -2181,6 +2551,8 @@ export type CommonMasterInclude<ExtArgs extends runtime.Types.Extensions.Interna
   productLengths?: boolean | Prisma.CommonMaster$productLengthsArgs<ExtArgs>
   productCareInstructions?: boolean | Prisma.CommonMaster$productCareInstructionsArgs<ExtArgs>
   productStatuses?: boolean | Prisma.CommonMaster$productStatusesArgs<ExtArgs>
+  productColors?: boolean | Prisma.CommonMaster$productColorsArgs<ExtArgs>
+  productVariantSizes?: boolean | Prisma.CommonMaster$productVariantSizesArgs<ExtArgs>
   _count?: boolean | Prisma.CommonMasterCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CommonMasterIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2207,6 +2579,8 @@ export type $CommonMasterPayload<ExtArgs extends runtime.Types.Extensions.Intern
     productLengths: Prisma.$ProductPayload<ExtArgs>[]
     productCareInstructions: Prisma.$ProductPayload<ExtArgs>[]
     productStatuses: Prisma.$ProductPayload<ExtArgs>[]
+    productColors: Prisma.$ProductColorPayload<ExtArgs>[]
+    productVariantSizes: Prisma.$ProductVariantPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2621,6 +2995,8 @@ export interface Prisma__CommonMasterClient<T, Null = never, ExtArgs extends run
   productLengths<T extends Prisma.CommonMaster$productLengthsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productLengthsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   productCareInstructions<T extends Prisma.CommonMaster$productCareInstructionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productCareInstructionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   productStatuses<T extends Prisma.CommonMaster$productStatusesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productStatusesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productColors<T extends Prisma.CommonMaster$productColorsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productColorsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductColorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productVariantSizes<T extends Prisma.CommonMaster$productVariantSizesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productVariantSizesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductVariantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3364,6 +3740,54 @@ export type CommonMaster$productStatusesArgs<ExtArgs extends runtime.Types.Exten
   take?: number
   skip?: number
   distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productColors
+ */
+export type CommonMaster$productColorsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProductColor
+   */
+  select?: Prisma.ProductColorSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProductColor
+   */
+  omit?: Prisma.ProductColorOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductColorInclude<ExtArgs> | null
+  where?: Prisma.ProductColorWhereInput
+  orderBy?: Prisma.ProductColorOrderByWithRelationInput | Prisma.ProductColorOrderByWithRelationInput[]
+  cursor?: Prisma.ProductColorWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductColorScalarFieldEnum | Prisma.ProductColorScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productVariantSizes
+ */
+export type CommonMaster$productVariantSizesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProductVariant
+   */
+  select?: Prisma.ProductVariantSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProductVariant
+   */
+  omit?: Prisma.ProductVariantOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductVariantInclude<ExtArgs> | null
+  where?: Prisma.ProductVariantWhereInput
+  orderBy?: Prisma.ProductVariantOrderByWithRelationInput | Prisma.ProductVariantOrderByWithRelationInput[]
+  cursor?: Prisma.ProductVariantWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductVariantScalarFieldEnum | Prisma.ProductVariantScalarFieldEnum[]
 }
 
 /**
