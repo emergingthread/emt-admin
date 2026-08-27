@@ -1,9 +1,44 @@
 import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { verifyPassword } from "@/lib/password";
+import { createUserToken } from "@/lib/jwt";
 
+/**
+ * @swagger
+ * /api/login:
+ *   post:
+ *     tags: [Authentication]
+ *     summary: Authenticate an administrator
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [email, password]
+ *             properties:
+ *               email: { type: string, format: email }
+ *               password: { type: string, format: password, minLength: 8 }
+ *     responses:
+ *       200:
+ *         description: Login succeeded
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token: { type: string, description: JWT access token }
+ *                 user: { type: object }
+ *       401: { description: Invalid credentials }
+ */
 export async function POST(request: Request) {
   const body = (await request.json()) as { email?: string; password?: string };
-  if (body.email !== "admin@emt.local" || body.password !== "password") {
+  const email = body.email?.trim().toLowerCase();
+  if (!email || !body.password) return NextResponse.json({ message: "Email and password are required" }, { status: 400 });
+  const user = await prisma.user.findUnique({ where: { email } });
+  if (!user?.passwordHash || !(await verifyPassword(body.password, user.passwordHash))) {
     return NextResponse.json({ message: "Invalid email or password" }, { status: 401 });
   }
-  return NextResponse.json({ user: { name: "Alex Morgan", role: "Administrator" } });
+  const token = createUserToken({ userId: user.id, name: user.name, email: user.email, role: user.role });
+  return NextResponse.json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role } });
 }

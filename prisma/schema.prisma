@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Starter models — replace with your own
+model User {
+  id         Int        @id @default(autoincrement())
+  email      String     @unique
+  name       String
+  role       String     @default("Administrator")
+  passwordHash String?
+  incidents  Incident[]
+  createdProducts Product[] @relation("ProductCreatedBy")
+  updatedProducts Product[] @relation("ProductUpdatedBy")
+  createdAt  DateTime   @default(now())
+}
+
+model Incident {
+  id          Int      @id @default(autoincrement())
+  title       String
+  status      String   @default("active")
+  district    String
+  reportedAt  DateTime @default(now())
+  assignedToId Int?
+  assignedTo  User?    @relation(fields: [assignedToId], references: [id])
+}
+
+model CommonMasterType {
+  id      Int            @id @default(autoincrement())
+  name    String         @unique
+  masters CommonMaster[]
+}
+
+model CommonMaster {
+  id             Int             @id @default(autoincrement())
+  name           String
+  commonTypeId   Int
+  commonTypeName String
+  commonType     CommonMasterType @relation(fields: [commonTypeId], references: [id], onDelete: Cascade)
+  productCategories Product[] @relation("ProductCategory")
+  productCollections Product[] @relation("ProductCollection")
+  productGenders Product[] @relation("ProductGender")
+  productMaterials Product[] @relation("ProductMaterial")
+  productFits Product[] @relation("ProductFit")
+  productNecklines Product[] @relation("ProductNeckline")
+  productSleeveTypes Product[] @relation("ProductSleeveType")
+  productOccasions Product[] @relation("ProductOccasion")
+  productPatterns Product[] @relation("ProductPattern")
+  productSeasons Product[] @relation("ProductSeason")
+  productLengths Product[] @relation("ProductLength")
+  productCareInstructions Product[] @relation("ProductCareInstructions")
+  productStatuses Product[] @relation("ProductStatus")
+
+  @@index([commonTypeId])
+}
+
+model Product {
+  id                 Int      @id @default(autoincrement())
+  name               String
+  code               String   @unique
+  slug               String   @unique
+  description        String?
+  categoryId         Int
+  collectionId       Int?
+  genderId           Int
+  materialId         Int?
+  fitId              Int?
+  necklineId         Int?
+  sleeveTypeId       Int?
+  occasionId         Int?
+  patternId           Int?
+  seasonId           Int?
+  lengthId           Int?
+  careInstructionsId Int?
+  productStatusId    Int?
+  averageRating      Float    @default(0)
+  reviewCount        Int      @default(0)
+  isActive           Boolean  @default(true)
+  createdBy          Int
+  updatedBy          Int?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  category         CommonMaster @relation("ProductCategory", fields: [categoryId], references: [id])
+  collection       CommonMaster? @relation("ProductCollection", fields: [collectionId], references: [id])
+  gender           CommonMaster @relation("ProductGender", fields: [genderId], references: [id])
+  material         CommonMaster? @relation("ProductMaterial", fields: [materialId], references: [id])
+  fit              CommonMaster? @relation("ProductFit", fields: [fitId], references: [id])
+  neckline         CommonMaster? @relation("ProductNeckline", fields: [necklineId], references: [id])
+  sleeveType       CommonMaster? @relation("ProductSleeveType", fields: [sleeveTypeId], references: [id])
+  occasion         CommonMaster? @relation("ProductOccasion", fields: [occasionId], references: [id])
+  pattern          CommonMaster? @relation("ProductPattern", fields: [patternId], references: [id])
+  season           CommonMaster? @relation("ProductSeason", fields: [seasonId], references: [id])
+  length           CommonMaster? @relation("ProductLength", fields: [lengthId], references: [id])
+  careInstructions CommonMaster? @relation("ProductCareInstructions", fields: [careInstructionsId], references: [id])
+  productStatus    CommonMaster? @relation("ProductStatus", fields: [productStatusId], references: [id])
+  creator          User @relation("ProductCreatedBy", fields: [createdBy], references: [id])
+  updater          User? @relation("ProductUpdatedBy", fields: [updatedBy], references: [id])
+  images           ProductImage[]
+
+  @@index([code])
+  @@index([slug])
+  @@index([categoryId])
+  @@index([collectionId])
+  @@index([genderId])
+  @@index([productStatusId])
+  @@index([isActive])
+  @@index([createdAt])
+}
+
+model ProductImage {
+  id           Int      @id @default(autoincrement())
+  productId    Int
+  imageUrl     String
+  publicId     String
+  altText      String?
+  isPrimary    Boolean  @default(false)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  product      Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId, displayOrder])
+}
+
+model Menu {
+  id           Int      @id @default(autoincrement())
+  name         String
+  parentId     Int?
+  route        String?  @unique
+  icon         String
+  displayOrder Int      @default(0)
+  isActive     Boolean  @default(true)
+  parent       Menu?    @relation("MenuTree", fields: [parentId], references: [id], onDelete: Cascade)
+  children     Menu[]   @relation("MenuTree")
+  createdAt    DateTime @default(now())
+
+  @@index([parentId])
+}
