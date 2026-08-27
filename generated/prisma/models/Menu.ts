@@ -468,10 +468,6 @@ export type MenuUncheckedCreateNestedManyWithoutParentInput = {
   connect?: Prisma.MenuWhereUniqueInput | Prisma.MenuWhereUniqueInput[]
 }
 
-export type BoolFieldUpdateOperationsInput = {
-  set?: boolean
-}
-
 export type MenuUpdateOneWithoutChildrenNestedInput = {
   create?: Prisma.XOR<Prisma.MenuCreateWithoutChildrenInput, Prisma.MenuUncheckedCreateWithoutChildrenInput>
   connectOrCreate?: Prisma.MenuCreateOrConnectWithoutChildrenInput

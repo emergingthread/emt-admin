@@ -213,6 +213,19 @@ export type CommonMasterWhereInput = {
   commonTypeId?: Prisma.IntFilter<"CommonMaster"> | number
   commonTypeName?: Prisma.StringFilter<"CommonMaster"> | string
   commonType?: Prisma.XOR<Prisma.CommonMasterTypeScalarRelationFilter, Prisma.CommonMasterTypeWhereInput>
+  productCategories?: Prisma.ProductListRelationFilter
+  productCollections?: Prisma.ProductListRelationFilter
+  productGenders?: Prisma.ProductListRelationFilter
+  productMaterials?: Prisma.ProductListRelationFilter
+  productFits?: Prisma.ProductListRelationFilter
+  productNecklines?: Prisma.ProductListRelationFilter
+  productSleeveTypes?: Prisma.ProductListRelationFilter
+  productOccasions?: Prisma.ProductListRelationFilter
+  productPatterns?: Prisma.ProductListRelationFilter
+  productSeasons?: Prisma.ProductListRelationFilter
+  productLengths?: Prisma.ProductListRelationFilter
+  productCareInstructions?: Prisma.ProductListRelationFilter
+  productStatuses?: Prisma.ProductListRelationFilter
 }
 
 export type CommonMasterOrderByWithRelationInput = {
@@ -221,6 +234,19 @@ export type CommonMasterOrderByWithRelationInput = {
   commonTypeId?: Prisma.SortOrder
   commonTypeName?: Prisma.SortOrder
   commonType?: Prisma.CommonMasterTypeOrderByWithRelationInput
+  productCategories?: Prisma.ProductOrderByRelationAggregateInput
+  productCollections?: Prisma.ProductOrderByRelationAggregateInput
+  productGenders?: Prisma.ProductOrderByRelationAggregateInput
+  productMaterials?: Prisma.ProductOrderByRelationAggregateInput
+  productFits?: Prisma.ProductOrderByRelationAggregateInput
+  productNecklines?: Prisma.ProductOrderByRelationAggregateInput
+  productSleeveTypes?: Prisma.ProductOrderByRelationAggregateInput
+  productOccasions?: Prisma.ProductOrderByRelationAggregateInput
+  productPatterns?: Prisma.ProductOrderByRelationAggregateInput
+  productSeasons?: Prisma.ProductOrderByRelationAggregateInput
+  productLengths?: Prisma.ProductOrderByRelationAggregateInput
+  productCareInstructions?: Prisma.ProductOrderByRelationAggregateInput
+  productStatuses?: Prisma.ProductOrderByRelationAggregateInput
 }
 
 export type CommonMasterWhereUniqueInput = Prisma.AtLeast<{
@@ -232,6 +258,19 @@ export type CommonMasterWhereUniqueInput = Prisma.AtLeast<{
   commonTypeId?: Prisma.IntFilter<"CommonMaster"> | number
   commonTypeName?: Prisma.StringFilter<"CommonMaster"> | string
   commonType?: Prisma.XOR<Prisma.CommonMasterTypeScalarRelationFilter, Prisma.CommonMasterTypeWhereInput>
+  productCategories?: Prisma.ProductListRelationFilter
+  productCollections?: Prisma.ProductListRelationFilter
+  productGenders?: Prisma.ProductListRelationFilter
+  productMaterials?: Prisma.ProductListRelationFilter
+  productFits?: Prisma.ProductListRelationFilter
+  productNecklines?: Prisma.ProductListRelationFilter
+  productSleeveTypes?: Prisma.ProductListRelationFilter
+  productOccasions?: Prisma.ProductListRelationFilter
+  productPatterns?: Prisma.ProductListRelationFilter
+  productSeasons?: Prisma.ProductListRelationFilter
+  productLengths?: Prisma.ProductListRelationFilter
+  productCareInstructions?: Prisma.ProductListRelationFilter
+  productStatuses?: Prisma.ProductListRelationFilter
 }, "id">
 
 export type CommonMasterOrderByWithAggregationInput = {
@@ -260,6 +299,19 @@ export type CommonMasterCreateInput = {
   name: string
   commonTypeName: string
   commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
 }
 
 export type CommonMasterUncheckedCreateInput = {
@@ -267,12 +319,38 @@ export type CommonMasterUncheckedCreateInput = {
   name: string
   commonTypeId: number
   commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
 }
 
 export type CommonMasterUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
   commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
 }
 
 export type CommonMasterUncheckedUpdateInput = {
@@ -280,6 +358,19 @@ export type CommonMasterUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
   commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
 }
 
 export type CommonMasterCreateManyInput = {
@@ -342,6 +433,16 @@ export type CommonMasterSumOrderByAggregateInput = {
   commonTypeId?: Prisma.SortOrder
 }
 
+export type CommonMasterScalarRelationFilter = {
+  is?: Prisma.CommonMasterWhereInput
+  isNot?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterNullableScalarRelationFilter = {
+  is?: Prisma.CommonMasterWhereInput | null
+  isNot?: Prisma.CommonMasterWhereInput | null
+}
+
 export type CommonMasterCreateNestedManyWithoutCommonTypeInput = {
   create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutCommonTypeInput, Prisma.CommonMasterUncheckedCreateWithoutCommonTypeInput> | Prisma.CommonMasterCreateWithoutCommonTypeInput[] | Prisma.CommonMasterUncheckedCreateWithoutCommonTypeInput[]
   connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutCommonTypeInput | Prisma.CommonMasterCreateOrConnectWithoutCommonTypeInput[]
@@ -384,15 +485,245 @@ export type CommonMasterUncheckedUpdateManyWithoutCommonTypeNestedInput = {
   deleteMany?: Prisma.CommonMasterScalarWhereInput | Prisma.CommonMasterScalarWhereInput[]
 }
 
+export type CommonMasterCreateNestedOneWithoutProductCategoriesInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCategoriesInput, Prisma.CommonMasterUncheckedCreateWithoutProductCategoriesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductCategoriesInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductCollectionsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCollectionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductCollectionsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductCollectionsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductGendersInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductGendersInput, Prisma.CommonMasterUncheckedCreateWithoutProductGendersInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductGendersInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductMaterialsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductMaterialsInput, Prisma.CommonMasterUncheckedCreateWithoutProductMaterialsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductMaterialsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductFitsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductFitsInput, Prisma.CommonMasterUncheckedCreateWithoutProductFitsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductFitsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductNecklinesInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductNecklinesInput, Prisma.CommonMasterUncheckedCreateWithoutProductNecklinesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductNecklinesInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductSleeveTypesInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductSleeveTypesInput, Prisma.CommonMasterUncheckedCreateWithoutProductSleeveTypesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductSleeveTypesInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductOccasionsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductOccasionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductOccasionsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductOccasionsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductPatternsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductPatternsInput, Prisma.CommonMasterUncheckedCreateWithoutProductPatternsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductPatternsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductSeasonsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductSeasonsInput, Prisma.CommonMasterUncheckedCreateWithoutProductSeasonsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductSeasonsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductLengthsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductLengthsInput, Prisma.CommonMasterUncheckedCreateWithoutProductLengthsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductLengthsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductCareInstructionsInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCareInstructionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductCareInstructionsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductCareInstructionsInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterCreateNestedOneWithoutProductStatusesInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductStatusesInput, Prisma.CommonMasterUncheckedCreateWithoutProductStatusesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductStatusesInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+}
+
+export type CommonMasterUpdateOneRequiredWithoutProductCategoriesNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCategoriesInput, Prisma.CommonMasterUncheckedCreateWithoutProductCategoriesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductCategoriesInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductCategoriesInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductCategoriesInput, Prisma.CommonMasterUpdateWithoutProductCategoriesInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductCategoriesInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductCollectionsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCollectionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductCollectionsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductCollectionsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductCollectionsInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductCollectionsInput, Prisma.CommonMasterUpdateWithoutProductCollectionsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductCollectionsInput>
+}
+
+export type CommonMasterUpdateOneRequiredWithoutProductGendersNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductGendersInput, Prisma.CommonMasterUncheckedCreateWithoutProductGendersInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductGendersInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductGendersInput
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductGendersInput, Prisma.CommonMasterUpdateWithoutProductGendersInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductGendersInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductMaterialsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductMaterialsInput, Prisma.CommonMasterUncheckedCreateWithoutProductMaterialsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductMaterialsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductMaterialsInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductMaterialsInput, Prisma.CommonMasterUpdateWithoutProductMaterialsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductMaterialsInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductFitsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductFitsInput, Prisma.CommonMasterUncheckedCreateWithoutProductFitsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductFitsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductFitsInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductFitsInput, Prisma.CommonMasterUpdateWithoutProductFitsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductFitsInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductNecklinesNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductNecklinesInput, Prisma.CommonMasterUncheckedCreateWithoutProductNecklinesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductNecklinesInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductNecklinesInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductNecklinesInput, Prisma.CommonMasterUpdateWithoutProductNecklinesInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductNecklinesInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductSleeveTypesNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductSleeveTypesInput, Prisma.CommonMasterUncheckedCreateWithoutProductSleeveTypesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductSleeveTypesInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductSleeveTypesInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductSleeveTypesInput, Prisma.CommonMasterUpdateWithoutProductSleeveTypesInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductSleeveTypesInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductOccasionsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductOccasionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductOccasionsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductOccasionsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductOccasionsInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductOccasionsInput, Prisma.CommonMasterUpdateWithoutProductOccasionsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductOccasionsInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductPatternsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductPatternsInput, Prisma.CommonMasterUncheckedCreateWithoutProductPatternsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductPatternsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductPatternsInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductPatternsInput, Prisma.CommonMasterUpdateWithoutProductPatternsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductPatternsInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductSeasonsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductSeasonsInput, Prisma.CommonMasterUncheckedCreateWithoutProductSeasonsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductSeasonsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductSeasonsInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductSeasonsInput, Prisma.CommonMasterUpdateWithoutProductSeasonsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductSeasonsInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductLengthsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductLengthsInput, Prisma.CommonMasterUncheckedCreateWithoutProductLengthsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductLengthsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductLengthsInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductLengthsInput, Prisma.CommonMasterUpdateWithoutProductLengthsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductLengthsInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductCareInstructionsNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCareInstructionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductCareInstructionsInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductCareInstructionsInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductCareInstructionsInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductCareInstructionsInput, Prisma.CommonMasterUpdateWithoutProductCareInstructionsInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductCareInstructionsInput>
+}
+
+export type CommonMasterUpdateOneWithoutProductStatusesNestedInput = {
+  create?: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductStatusesInput, Prisma.CommonMasterUncheckedCreateWithoutProductStatusesInput>
+  connectOrCreate?: Prisma.CommonMasterCreateOrConnectWithoutProductStatusesInput
+  upsert?: Prisma.CommonMasterUpsertWithoutProductStatusesInput
+  disconnect?: Prisma.CommonMasterWhereInput | boolean
+  delete?: Prisma.CommonMasterWhereInput | boolean
+  connect?: Prisma.CommonMasterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommonMasterUpdateToOneWithWhereWithoutProductStatusesInput, Prisma.CommonMasterUpdateWithoutProductStatusesInput>, Prisma.CommonMasterUncheckedUpdateWithoutProductStatusesInput>
+}
+
 export type CommonMasterCreateWithoutCommonTypeInput = {
   name: string
   commonTypeName: string
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
 }
 
 export type CommonMasterUncheckedCreateWithoutCommonTypeInput = {
   id?: number
   name: string
   commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
 }
 
 export type CommonMasterCreateOrConnectWithoutCommonTypeInput = {
@@ -431,6 +762,1176 @@ export type CommonMasterScalarWhereInput = {
   commonTypeName?: Prisma.StringFilter<"CommonMaster"> | string
 }
 
+export type CommonMasterCreateWithoutProductCategoriesInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductCategoriesInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductCategoriesInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCategoriesInput, Prisma.CommonMasterUncheckedCreateWithoutProductCategoriesInput>
+}
+
+export type CommonMasterCreateWithoutProductCollectionsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductCollectionsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductCollectionsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCollectionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductCollectionsInput>
+}
+
+export type CommonMasterCreateWithoutProductGendersInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductGendersInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductGendersInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductGendersInput, Prisma.CommonMasterUncheckedCreateWithoutProductGendersInput>
+}
+
+export type CommonMasterCreateWithoutProductMaterialsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductMaterialsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductMaterialsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductMaterialsInput, Prisma.CommonMasterUncheckedCreateWithoutProductMaterialsInput>
+}
+
+export type CommonMasterCreateWithoutProductFitsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductFitsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductFitsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductFitsInput, Prisma.CommonMasterUncheckedCreateWithoutProductFitsInput>
+}
+
+export type CommonMasterCreateWithoutProductNecklinesInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductNecklinesInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductNecklinesInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductNecklinesInput, Prisma.CommonMasterUncheckedCreateWithoutProductNecklinesInput>
+}
+
+export type CommonMasterCreateWithoutProductSleeveTypesInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductSleeveTypesInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductSleeveTypesInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductSleeveTypesInput, Prisma.CommonMasterUncheckedCreateWithoutProductSleeveTypesInput>
+}
+
+export type CommonMasterCreateWithoutProductOccasionsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductOccasionsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductOccasionsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductOccasionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductOccasionsInput>
+}
+
+export type CommonMasterCreateWithoutProductPatternsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductPatternsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductPatternsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductPatternsInput, Prisma.CommonMasterUncheckedCreateWithoutProductPatternsInput>
+}
+
+export type CommonMasterCreateWithoutProductSeasonsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductSeasonsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductSeasonsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductSeasonsInput, Prisma.CommonMasterUncheckedCreateWithoutProductSeasonsInput>
+}
+
+export type CommonMasterCreateWithoutProductLengthsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductLengthsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductLengthsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductLengthsInput, Prisma.CommonMasterUncheckedCreateWithoutProductLengthsInput>
+}
+
+export type CommonMasterCreateWithoutProductCareInstructionsInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productStatuses?: Prisma.ProductCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductCareInstructionsInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productStatuses?: Prisma.ProductUncheckedCreateNestedManyWithoutProductStatusInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductCareInstructionsInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCareInstructionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductCareInstructionsInput>
+}
+
+export type CommonMasterCreateWithoutProductStatusesInput = {
+  name: string
+  commonTypeName: string
+  commonType: Prisma.CommonMasterTypeCreateNestedOneWithoutMastersInput
+  productCategories?: Prisma.ProductCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductCreateNestedManyWithoutCareInstructionsInput
+}
+
+export type CommonMasterUncheckedCreateWithoutProductStatusesInput = {
+  id?: number
+  name: string
+  commonTypeId: number
+  commonTypeName: string
+  productCategories?: Prisma.ProductUncheckedCreateNestedManyWithoutCategoryInput
+  productCollections?: Prisma.ProductUncheckedCreateNestedManyWithoutCollectionInput
+  productGenders?: Prisma.ProductUncheckedCreateNestedManyWithoutGenderInput
+  productMaterials?: Prisma.ProductUncheckedCreateNestedManyWithoutMaterialInput
+  productFits?: Prisma.ProductUncheckedCreateNestedManyWithoutFitInput
+  productNecklines?: Prisma.ProductUncheckedCreateNestedManyWithoutNecklineInput
+  productSleeveTypes?: Prisma.ProductUncheckedCreateNestedManyWithoutSleeveTypeInput
+  productOccasions?: Prisma.ProductUncheckedCreateNestedManyWithoutOccasionInput
+  productPatterns?: Prisma.ProductUncheckedCreateNestedManyWithoutPatternInput
+  productSeasons?: Prisma.ProductUncheckedCreateNestedManyWithoutSeasonInput
+  productLengths?: Prisma.ProductUncheckedCreateNestedManyWithoutLengthInput
+  productCareInstructions?: Prisma.ProductUncheckedCreateNestedManyWithoutCareInstructionsInput
+}
+
+export type CommonMasterCreateOrConnectWithoutProductStatusesInput = {
+  where: Prisma.CommonMasterWhereUniqueInput
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductStatusesInput, Prisma.CommonMasterUncheckedCreateWithoutProductStatusesInput>
+}
+
+export type CommonMasterUpsertWithoutProductCategoriesInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductCategoriesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductCategoriesInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCategoriesInput, Prisma.CommonMasterUncheckedCreateWithoutProductCategoriesInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductCategoriesInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductCategoriesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductCategoriesInput>
+}
+
+export type CommonMasterUpdateWithoutProductCategoriesInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductCategoriesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductCollectionsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductCollectionsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductCollectionsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCollectionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductCollectionsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductCollectionsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductCollectionsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductCollectionsInput>
+}
+
+export type CommonMasterUpdateWithoutProductCollectionsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductCollectionsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductGendersInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductGendersInput, Prisma.CommonMasterUncheckedUpdateWithoutProductGendersInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductGendersInput, Prisma.CommonMasterUncheckedCreateWithoutProductGendersInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductGendersInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductGendersInput, Prisma.CommonMasterUncheckedUpdateWithoutProductGendersInput>
+}
+
+export type CommonMasterUpdateWithoutProductGendersInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductGendersInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductMaterialsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductMaterialsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductMaterialsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductMaterialsInput, Prisma.CommonMasterUncheckedCreateWithoutProductMaterialsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductMaterialsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductMaterialsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductMaterialsInput>
+}
+
+export type CommonMasterUpdateWithoutProductMaterialsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductMaterialsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductFitsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductFitsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductFitsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductFitsInput, Prisma.CommonMasterUncheckedCreateWithoutProductFitsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductFitsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductFitsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductFitsInput>
+}
+
+export type CommonMasterUpdateWithoutProductFitsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductFitsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductNecklinesInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductNecklinesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductNecklinesInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductNecklinesInput, Prisma.CommonMasterUncheckedCreateWithoutProductNecklinesInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductNecklinesInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductNecklinesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductNecklinesInput>
+}
+
+export type CommonMasterUpdateWithoutProductNecklinesInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductNecklinesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductSleeveTypesInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductSleeveTypesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductSleeveTypesInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductSleeveTypesInput, Prisma.CommonMasterUncheckedCreateWithoutProductSleeveTypesInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductSleeveTypesInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductSleeveTypesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductSleeveTypesInput>
+}
+
+export type CommonMasterUpdateWithoutProductSleeveTypesInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductSleeveTypesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductOccasionsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductOccasionsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductOccasionsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductOccasionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductOccasionsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductOccasionsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductOccasionsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductOccasionsInput>
+}
+
+export type CommonMasterUpdateWithoutProductOccasionsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductOccasionsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductPatternsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductPatternsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductPatternsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductPatternsInput, Prisma.CommonMasterUncheckedCreateWithoutProductPatternsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductPatternsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductPatternsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductPatternsInput>
+}
+
+export type CommonMasterUpdateWithoutProductPatternsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductPatternsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductSeasonsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductSeasonsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductSeasonsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductSeasonsInput, Prisma.CommonMasterUncheckedCreateWithoutProductSeasonsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductSeasonsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductSeasonsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductSeasonsInput>
+}
+
+export type CommonMasterUpdateWithoutProductSeasonsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductSeasonsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductLengthsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductLengthsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductLengthsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductLengthsInput, Prisma.CommonMasterUncheckedCreateWithoutProductLengthsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductLengthsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductLengthsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductLengthsInput>
+}
+
+export type CommonMasterUpdateWithoutProductLengthsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductLengthsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductCareInstructionsInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductCareInstructionsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductCareInstructionsInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductCareInstructionsInput, Prisma.CommonMasterUncheckedCreateWithoutProductCareInstructionsInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductCareInstructionsInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductCareInstructionsInput, Prisma.CommonMasterUncheckedUpdateWithoutProductCareInstructionsInput>
+}
+
+export type CommonMasterUpdateWithoutProductCareInstructionsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductCareInstructionsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
+}
+
+export type CommonMasterUpsertWithoutProductStatusesInput = {
+  update: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductStatusesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductStatusesInput>
+  create: Prisma.XOR<Prisma.CommonMasterCreateWithoutProductStatusesInput, Prisma.CommonMasterUncheckedCreateWithoutProductStatusesInput>
+  where?: Prisma.CommonMasterWhereInput
+}
+
+export type CommonMasterUpdateToOneWithWhereWithoutProductStatusesInput = {
+  where?: Prisma.CommonMasterWhereInput
+  data: Prisma.XOR<Prisma.CommonMasterUpdateWithoutProductStatusesInput, Prisma.CommonMasterUncheckedUpdateWithoutProductStatusesInput>
+}
+
+export type CommonMasterUpdateWithoutProductStatusesInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  commonType?: Prisma.CommonMasterTypeUpdateOneRequiredWithoutMastersNestedInput
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+}
+
+export type CommonMasterUncheckedUpdateWithoutProductStatusesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  commonTypeId?: Prisma.IntFieldUpdateOperationsInput | number
+  commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+}
+
 export type CommonMasterCreateManyCommonTypeInput = {
   id?: number
   name: string
@@ -440,12 +1941,38 @@ export type CommonMasterCreateManyCommonTypeInput = {
 export type CommonMasterUpdateWithoutCommonTypeInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUpdateManyWithoutProductStatusNestedInput
 }
 
 export type CommonMasterUncheckedUpdateWithoutCommonTypeInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   commonTypeName?: Prisma.StringFieldUpdateOperationsInput | string
+  productCategories?: Prisma.ProductUncheckedUpdateManyWithoutCategoryNestedInput
+  productCollections?: Prisma.ProductUncheckedUpdateManyWithoutCollectionNestedInput
+  productGenders?: Prisma.ProductUncheckedUpdateManyWithoutGenderNestedInput
+  productMaterials?: Prisma.ProductUncheckedUpdateManyWithoutMaterialNestedInput
+  productFits?: Prisma.ProductUncheckedUpdateManyWithoutFitNestedInput
+  productNecklines?: Prisma.ProductUncheckedUpdateManyWithoutNecklineNestedInput
+  productSleeveTypes?: Prisma.ProductUncheckedUpdateManyWithoutSleeveTypeNestedInput
+  productOccasions?: Prisma.ProductUncheckedUpdateManyWithoutOccasionNestedInput
+  productPatterns?: Prisma.ProductUncheckedUpdateManyWithoutPatternNestedInput
+  productSeasons?: Prisma.ProductUncheckedUpdateManyWithoutSeasonNestedInput
+  productLengths?: Prisma.ProductUncheckedUpdateManyWithoutLengthNestedInput
+  productCareInstructions?: Prisma.ProductUncheckedUpdateManyWithoutCareInstructionsNestedInput
+  productStatuses?: Prisma.ProductUncheckedUpdateManyWithoutProductStatusNestedInput
 }
 
 export type CommonMasterUncheckedUpdateManyWithoutCommonTypeInput = {
@@ -455,6 +1982,143 @@ export type CommonMasterUncheckedUpdateManyWithoutCommonTypeInput = {
 }
 
 
+/**
+ * Count Type CommonMasterCountOutputType
+ */
+
+export type CommonMasterCountOutputType = {
+  productCategories: number
+  productCollections: number
+  productGenders: number
+  productMaterials: number
+  productFits: number
+  productNecklines: number
+  productSleeveTypes: number
+  productOccasions: number
+  productPatterns: number
+  productSeasons: number
+  productLengths: number
+  productCareInstructions: number
+  productStatuses: number
+}
+
+export type CommonMasterCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  productCategories?: boolean | CommonMasterCountOutputTypeCountProductCategoriesArgs
+  productCollections?: boolean | CommonMasterCountOutputTypeCountProductCollectionsArgs
+  productGenders?: boolean | CommonMasterCountOutputTypeCountProductGendersArgs
+  productMaterials?: boolean | CommonMasterCountOutputTypeCountProductMaterialsArgs
+  productFits?: boolean | CommonMasterCountOutputTypeCountProductFitsArgs
+  productNecklines?: boolean | CommonMasterCountOutputTypeCountProductNecklinesArgs
+  productSleeveTypes?: boolean | CommonMasterCountOutputTypeCountProductSleeveTypesArgs
+  productOccasions?: boolean | CommonMasterCountOutputTypeCountProductOccasionsArgs
+  productPatterns?: boolean | CommonMasterCountOutputTypeCountProductPatternsArgs
+  productSeasons?: boolean | CommonMasterCountOutputTypeCountProductSeasonsArgs
+  productLengths?: boolean | CommonMasterCountOutputTypeCountProductLengthsArgs
+  productCareInstructions?: boolean | CommonMasterCountOutputTypeCountProductCareInstructionsArgs
+  productStatuses?: boolean | CommonMasterCountOutputTypeCountProductStatusesArgs
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CommonMasterCountOutputType
+   */
+  select?: Prisma.CommonMasterCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductCategoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductCollectionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductGendersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductMaterialsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductFitsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductNecklinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductSleeveTypesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductOccasionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductPatternsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductSeasonsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductLengthsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductCareInstructionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
+/**
+ * CommonMasterCountOutputType without action
+ */
+export type CommonMasterCountOutputTypeCountProductStatusesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProductWhereInput
+}
+
 
 export type CommonMasterSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -462,6 +2126,20 @@ export type CommonMasterSelect<ExtArgs extends runtime.Types.Extensions.Internal
   commonTypeId?: boolean
   commonTypeName?: boolean
   commonType?: boolean | Prisma.CommonMasterTypeDefaultArgs<ExtArgs>
+  productCategories?: boolean | Prisma.CommonMaster$productCategoriesArgs<ExtArgs>
+  productCollections?: boolean | Prisma.CommonMaster$productCollectionsArgs<ExtArgs>
+  productGenders?: boolean | Prisma.CommonMaster$productGendersArgs<ExtArgs>
+  productMaterials?: boolean | Prisma.CommonMaster$productMaterialsArgs<ExtArgs>
+  productFits?: boolean | Prisma.CommonMaster$productFitsArgs<ExtArgs>
+  productNecklines?: boolean | Prisma.CommonMaster$productNecklinesArgs<ExtArgs>
+  productSleeveTypes?: boolean | Prisma.CommonMaster$productSleeveTypesArgs<ExtArgs>
+  productOccasions?: boolean | Prisma.CommonMaster$productOccasionsArgs<ExtArgs>
+  productPatterns?: boolean | Prisma.CommonMaster$productPatternsArgs<ExtArgs>
+  productSeasons?: boolean | Prisma.CommonMaster$productSeasonsArgs<ExtArgs>
+  productLengths?: boolean | Prisma.CommonMaster$productLengthsArgs<ExtArgs>
+  productCareInstructions?: boolean | Prisma.CommonMaster$productCareInstructionsArgs<ExtArgs>
+  productStatuses?: boolean | Prisma.CommonMaster$productStatusesArgs<ExtArgs>
+  _count?: boolean | Prisma.CommonMasterCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["commonMaster"]>
 
 export type CommonMasterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -490,6 +2168,20 @@ export type CommonMasterSelectScalar = {
 export type CommonMasterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "commonTypeId" | "commonTypeName", ExtArgs["result"]["commonMaster"]>
 export type CommonMasterInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   commonType?: boolean | Prisma.CommonMasterTypeDefaultArgs<ExtArgs>
+  productCategories?: boolean | Prisma.CommonMaster$productCategoriesArgs<ExtArgs>
+  productCollections?: boolean | Prisma.CommonMaster$productCollectionsArgs<ExtArgs>
+  productGenders?: boolean | Prisma.CommonMaster$productGendersArgs<ExtArgs>
+  productMaterials?: boolean | Prisma.CommonMaster$productMaterialsArgs<ExtArgs>
+  productFits?: boolean | Prisma.CommonMaster$productFitsArgs<ExtArgs>
+  productNecklines?: boolean | Prisma.CommonMaster$productNecklinesArgs<ExtArgs>
+  productSleeveTypes?: boolean | Prisma.CommonMaster$productSleeveTypesArgs<ExtArgs>
+  productOccasions?: boolean | Prisma.CommonMaster$productOccasionsArgs<ExtArgs>
+  productPatterns?: boolean | Prisma.CommonMaster$productPatternsArgs<ExtArgs>
+  productSeasons?: boolean | Prisma.CommonMaster$productSeasonsArgs<ExtArgs>
+  productLengths?: boolean | Prisma.CommonMaster$productLengthsArgs<ExtArgs>
+  productCareInstructions?: boolean | Prisma.CommonMaster$productCareInstructionsArgs<ExtArgs>
+  productStatuses?: boolean | Prisma.CommonMaster$productStatusesArgs<ExtArgs>
+  _count?: boolean | Prisma.CommonMasterCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CommonMasterIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   commonType?: boolean | Prisma.CommonMasterTypeDefaultArgs<ExtArgs>
@@ -502,6 +2194,19 @@ export type $CommonMasterPayload<ExtArgs extends runtime.Types.Extensions.Intern
   name: "CommonMaster"
   objects: {
     commonType: Prisma.$CommonMasterTypePayload<ExtArgs>
+    productCategories: Prisma.$ProductPayload<ExtArgs>[]
+    productCollections: Prisma.$ProductPayload<ExtArgs>[]
+    productGenders: Prisma.$ProductPayload<ExtArgs>[]
+    productMaterials: Prisma.$ProductPayload<ExtArgs>[]
+    productFits: Prisma.$ProductPayload<ExtArgs>[]
+    productNecklines: Prisma.$ProductPayload<ExtArgs>[]
+    productSleeveTypes: Prisma.$ProductPayload<ExtArgs>[]
+    productOccasions: Prisma.$ProductPayload<ExtArgs>[]
+    productPatterns: Prisma.$ProductPayload<ExtArgs>[]
+    productSeasons: Prisma.$ProductPayload<ExtArgs>[]
+    productLengths: Prisma.$ProductPayload<ExtArgs>[]
+    productCareInstructions: Prisma.$ProductPayload<ExtArgs>[]
+    productStatuses: Prisma.$ProductPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -903,6 +2608,19 @@ readonly fields: CommonMasterFieldRefs;
 export interface Prisma__CommonMasterClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   commonType<T extends Prisma.CommonMasterTypeDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMasterTypeDefaultArgs<ExtArgs>>): Prisma.Prisma__CommonMasterTypeClient<runtime.Types.Result.GetResult<Prisma.$CommonMasterTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  productCategories<T extends Prisma.CommonMaster$productCategoriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productCategoriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productCollections<T extends Prisma.CommonMaster$productCollectionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productCollectionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productGenders<T extends Prisma.CommonMaster$productGendersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productGendersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productMaterials<T extends Prisma.CommonMaster$productMaterialsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productMaterialsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productFits<T extends Prisma.CommonMaster$productFitsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productFitsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productNecklines<T extends Prisma.CommonMaster$productNecklinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productNecklinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productSleeveTypes<T extends Prisma.CommonMaster$productSleeveTypesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productSleeveTypesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productOccasions<T extends Prisma.CommonMaster$productOccasionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productOccasionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productPatterns<T extends Prisma.CommonMaster$productPatternsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productPatternsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productSeasons<T extends Prisma.CommonMaster$productSeasonsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productSeasonsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productLengths<T extends Prisma.CommonMaster$productLengthsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productLengthsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productCareInstructions<T extends Prisma.CommonMaster$productCareInstructionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productCareInstructionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  productStatuses<T extends Prisma.CommonMaster$productStatusesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommonMaster$productStatusesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1334,6 +3052,318 @@ export type CommonMasterDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
    * Limit how many CommonMasters to delete.
    */
   limit?: number
+}
+
+/**
+ * CommonMaster.productCategories
+ */
+export type CommonMaster$productCategoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productCollections
+ */
+export type CommonMaster$productCollectionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productGenders
+ */
+export type CommonMaster$productGendersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productMaterials
+ */
+export type CommonMaster$productMaterialsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productFits
+ */
+export type CommonMaster$productFitsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productNecklines
+ */
+export type CommonMaster$productNecklinesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productSleeveTypes
+ */
+export type CommonMaster$productSleeveTypesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productOccasions
+ */
+export type CommonMaster$productOccasionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productPatterns
+ */
+export type CommonMaster$productPatternsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productSeasons
+ */
+export type CommonMaster$productSeasonsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productLengths
+ */
+export type CommonMaster$productLengthsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productCareInstructions
+ */
+export type CommonMaster$productCareInstructionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
+}
+
+/**
+ * CommonMaster.productStatuses
+ */
+export type CommonMaster$productStatusesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Product
+   */
+  select?: Prisma.ProductSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Product
+   */
+  omit?: Prisma.ProductOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProductInclude<ExtArgs> | null
+  where?: Prisma.ProductWhereInput
+  orderBy?: Prisma.ProductOrderByWithRelationInput | Prisma.ProductOrderByWithRelationInput[]
+  cursor?: Prisma.ProductWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProductScalarFieldEnum | Prisma.ProductScalarFieldEnum[]
 }
 
 /**

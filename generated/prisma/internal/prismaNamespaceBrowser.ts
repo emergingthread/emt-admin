@@ -55,6 +55,8 @@ export const ModelName = {
   Incident: 'Incident',
   CommonMasterType: 'CommonMasterType',
   CommonMaster: 'CommonMaster',
+  Product: 'Product',
+  ProductImage: 'ProductImage',
   Menu: 'Menu'
 } as const
 
@@ -114,6 +116,52 @@ export const CommonMasterScalarFieldEnum = {
 } as const
 
 export type CommonMasterScalarFieldEnum = (typeof CommonMasterScalarFieldEnum)[keyof typeof CommonMasterScalarFieldEnum]
+
+
+export const ProductScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  code: 'code',
+  slug: 'slug',
+  description: 'description',
+  categoryId: 'categoryId',
+  collectionId: 'collectionId',
+  genderId: 'genderId',
+  materialId: 'materialId',
+  fitId: 'fitId',
+  necklineId: 'necklineId',
+  sleeveTypeId: 'sleeveTypeId',
+  occasionId: 'occasionId',
+  patternId: 'patternId',
+  seasonId: 'seasonId',
+  lengthId: 'lengthId',
+  careInstructionsId: 'careInstructionsId',
+  productStatusId: 'productStatusId',
+  averageRating: 'averageRating',
+  reviewCount: 'reviewCount',
+  isActive: 'isActive',
+  createdBy: 'createdBy',
+  updatedBy: 'updatedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
+
+
+export const ProductImageScalarFieldEnum = {
+  id: 'id',
+  productId: 'productId',
+  imageUrl: 'imageUrl',
+  publicId: 'publicId',
+  altText: 'altText',
+  isPrimary: 'isPrimary',
+  displayOrder: 'displayOrder',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProductImageScalarFieldEnum = (typeof ProductImageScalarFieldEnum)[keyof typeof ProductImageScalarFieldEnum]
 
 
 export const MenuScalarFieldEnum = {

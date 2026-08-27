@@ -25,8 +25,14 @@ test('fetchJson rejects when the response is not successful', async () => {
 });
 
 test('fetchJson rejects when the network call fails', async () => {
-  await assert.rejects(
-    () => fetchJson(() => Promise.reject(new Error('Failed to fetch')) as any),
-    /Failed to fetch/
-  );
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => {
+    throw new Error('Failed to fetch');
+  };
+
+  try {
+    await assert.rejects(() => fetchJson('/api/test'), /Failed to fetch/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
