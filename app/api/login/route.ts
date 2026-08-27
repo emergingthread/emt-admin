@@ -32,13 +32,25 @@ import { createUserToken } from "@/lib/jwt";
  *       401: { description: Invalid credentials }
  */
 export async function POST(request: Request) {
-  const body = (await request.json()) as { email?: string; password?: string };
-  const email = body.email?.trim().toLowerCase();
-  if (!email || !body.password) return NextResponse.json({ message: "Email and password are required" }, { status: 400 });
-  const user = await prisma.user.findUnique({ where: { email } });
-  if (!user?.passwordHash || !(await verifyPassword(body.password, user.passwordHash))) {
-    return NextResponse.json({ message: "Invalid email or password" }, { status: 401 });
+  try {
+    const body = (await request.json()) as { email?: string; password?: string };
+    const email = body.email?.trim().toLowerCase();
+    if (!email || !body.password) return NextResponse.json({ message: "Email and password are required" }, { status: 400 });
+    if (!process.env.DATABASE_URL) return NextResponse.json({ message: "DATABASE_URL is not configured on the server" }, { status: 503 });
+    if (!process.env.JWT_SECRET) return NextResponse.json({ message: "JWT_SECRET is not configured on the server" }, { status: 503 });
+
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user?.passwordHash || !(await verifyPassword(body.password, user.passwordHash))) {
+      return NextResponse.json({ message: "Invalid email or password" }, { status: 401 });
+    }
+    const token = createUserToken({ userId: user.id, name: user.name, email: user.email, role: user.role });
+    return NextResponse.json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role } });
+  } catch (error) {
+    console.error("Login failed:", error);
+    const code = (error as { code?: string })?.code;
+    if (["ECONNREFUSED", "ENOTFOUND", "ETIMEDOUT", "ECONNRESET", "P1001", "P2021"].includes(code || "")) {
+      return NextResponse.json({ message: "Unable to connect to the production database" }, { status: 503 });
+    }
+    return NextResponse.json({ message: "Unable to sign in. Check the deployment server logs." }, { status: 500 });
   }
-  const token = createUserToken({ userId: user.id, name: user.name, email: user.email, role: user.role });
-  return NextResponse.json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role } });
 }
